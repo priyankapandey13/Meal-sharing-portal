@@ -1,0 +1,438 @@
+body, input, textarea, select{font-family:Roboto;font-size:14px;letter-spacing:0.06em;}
+html, body, ul, li, p{list-style:none;padding:0px;margin:0px;}
+
+html, body{height: 100%;width: 100%;color: #707070;}
+
+h1, h2, h3, h4, h5, p{font-weight:normal;padding:0px;margin:0px;}
+h1{font-size:40px;text-transform: uppercase;font-weight: bold;}
+h2{font-size:40px;margin-bottom: 10px; color: #79a957;}
+h3{font-size:20px;margin-bottom: 10px;}
+p{font-size:14px;line-height: 22px;}
+
+input, select, textarea {
+  border-color: #d2d6d9;
+  display: block;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 400;
+  height: 100%;
+  padding: 10px 9px;
+  line-height: 1.42857143;
+  color: #2e2e2e;
+  background-color: #fff;
+  border: 1px solid #d2d6d9;
+  border-radius: 5px;
+  margin-bottom: 12px;
+}
+button{padding: 12px 24px;
+  border: none;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+  border-radius: 2px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  color: #fff;
+  transition: all 0.15s ease;
+  text-shadow: 0 1px 3px rgba(36, 180, 126, 0.4);
+  outline: none;
+  cursor: pointer;
+  line-height: 1.5rem;
+  /* margin-bottom: 24px; */
+  background: #497dc8;
+}
+
+
+/*  Common css classes  */
+
+body{background: #f3f7ec;}
+
+header{
+  background-color: rgba(52, 58, 64, 0.39);
+  color: rgb(184, 139, 139);
+  padding: 15px 9% 3px 9%;
+  display: flex;
+  position: fixed;
+  z-index: 10;
+  width: 82%;
+}
+header h1{
+  flex: min-content;
+  justify-content: flex-start;  
+  display: flex;
+}
+header a img{
+  width: 220px;
+}
+header ul{
+  flex: min-content;
+  margin: 2% 0 0 4%;
+  justify-content: end;
+  display: flex;
+}
+header ul li{display: inline;margin: 0 2%;}
+header ul li a:link, header ul li a:visited{
+  color: #000;
+  text-decoration: none;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+header ul li a:active, header ul li a:hover{
+  display: inline;
+  color: #fff;
+}
+
+/* body css starts from here */
+
+.bodycontainer{
+  padding: 9% 6% 3%;
+  position: relative;
+  height:65%;
+}
+.slidercontainer{
+  width: 100%;
+  height: 94%;
+  position: relative;
+  top: 0px;
+  z-index: 1;
+  overflow: hidden;
+}
+.slidercontainer img{
+  width: 100%;
+}
+/* .mealslider{
+  width: 41%;
+  display: block;
+  height: 130%;
+  position: absolute;
+  left: 0;
+   top: 99px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+} */
+
+.mealslider{
+  width: 42%;
+  display: block;
+  height: 97%;
+  position: absolute;
+  left: 0;
+  top: 99px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  float: left;
+  overflow: hidden;
+}
+
+
+.mealinfo{
+  
+  width: 51%;
+  float: right;
+  margin-right: 2.5%;
+}
+
+.meallist{
+  padding: 3% 0 0;
+  margin-bottom: 5%;
+}
+
+.mealinfo li span{
+  position: relative;
+}
+
+.mealinfo li span img:hover{
+  animation: bounce 1.5s infinite;
+  }
+  
+.meallist ul li:nth-child(n){
+  box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+  padding: 1% 1%;
+  width: 28.2%;
+  margin: 2% 0%;
+  display: inline-block;
+  position: relative;
+  
+}
+.meallist ul li:nth-child(3n+2){ /* it will give me control over : 2, 5, 8 */
+  margin: 2% 4%;
+  
+}
+
+.mealinfo ul li{
+  margin:  2% 4% 2% 0; 
+  display: inline-block;
+  width: auto;
+
+}
+
+.mealinfo ul li.fullwidth, #updatemeal ul li.fullwidth{
+  width: 97%;
+}
+
+.meallist ul li div:nth-child(1){
+  width: 100%;
+  height: 240px;
+  display: block;
+  overflow: hidden;
+}
+
+.meallist ul li span:nth-child(2) {
+  position: absolute;
+top: 0px;
+right: 0px;
+background: #0000006e;
+color: #fff;
+padding: 10px;
+border-radius: 10px 0;
+}
+
+.meallist ul li a span{
+  transition: all 2s;
+  width: 100%;
+  height: 100%;  
+  display: block;background-size: cover;
+}
+.meallist ul li a:hover span{
+  /* background-size: 110%; */
+/* background-position-x: center; */
+transform: scale(1.2);
+/* background-position-y: center; */
+}
+
+.meallist ul li h3{
+  margin: 20px 0px 7px;
+  float: left;
+  width: 69%;
+}
+
+
+.meallist ul li .action a{
+  float: left;
+  margin: 20px 0 0 10px;
+}
+.meallist .action a:hover::before{
+  content: attr(alt);
+  display: block;
+  position: absolute;
+  padding: 11px 13px;
+  background-color: #000000ad;
+  bottom: 50px;
+  border-radius: 4px;
+  color: #fff;
+  right: 0px;
+}
+  
+.meallist ul li .action a img:hover{
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+
+}
+ 
+
+.dropmenu{
+  height: 16px;
+  text-align: right;
+  display: block;
+  border-bottom: 2px solid #cecece;
+}
+ 
+.dropmenu label{
+  width: 35px;
+  height: 35px;
+  display: inline-block;
+  background-color: #f3f7ec;
+  background-repeat: no-repeat;
+  border-radius: 50%; 
+  position: relative;
+}
+.dropmenu label:hover{
+  display: inline-block;  
+  background-repeat: no-repeat;
+}
+.dropmenu label:hover::before{
+  content: attr(alt);
+  display: block;
+  position: absolute;
+  padding: 11px 13px;
+  background-color: #454545;
+  bottom: 50px;
+  border-radius: 4px 4px 4px 0px;
+  color: #fff;
+  left: 40%;
+  width: max-content;
+  /* animation: bounce 1.5s infinite; */
+}
+.dropmenu label:hover::after{
+  content: '';
+  display: block;
+  position: absolute;
+  top: -15px;
+  border-radius: 0px;
+  color: #fff;
+  left: 40%;
+  width: 0;
+  height: 0;
+  border-right: 13px solid transparent;
+  border-top: 17px solid #454545;
+  /* animation: bounce 1.5s infinite; */
+}
+
+.dropmenu:hover ul{
+  display: block;
+} 
+.dropmenu ul li{
+  font-size: 15px;
+  line-height: 44px;
+  padding: 0px 19px;
+}
+.dropmenu ul li:hover{
+  background-color:darkgrey;
+}
+#reservation, #showreviews, #updatemeal {
+  padding-top: 20px;
+}
+#updatemeal{
+  display: block;
+  padding-right:2%;
+  padding-bottom:4%;
+  padding-left:2%;
+  border: 2px solid #cecece;
+  border-top: 0;
+}
+
+#updatemeal ul{
+  margin-top: 40px;
+}
+
+#updatemeal ul li{
+  width: 45%;
+  margin-bottom: 3% !important;
+  margin-top: 0 !important;
+  margin-right: 0px;
+}
+#updatemeal ul li:nth-child(1){
+  width: 80%;
+  margin: 0 10%;
+}
+#updatemeal ul li:nth-child(2n){
+  margin: 0 6% 0 0;
+}
+
+
+#showreviews ul li{
+  width: 100%;
+}
+
+#showreviews ul li .userpic{
+  width: 95px;
+  height: 95px;
+  margin-right: 2%;
+  float: left;
+}
+#showreviews ul li .mealreviews{
+  /* width: 95px; */
+  /* height: 95px; */
+  /* margin-right: 1%; */
+  float: left;
+}
+
+#showreviews .mealreviews h3{
+  font-size: 20px;
+  color: #79a957;
+}
+
+/* Featured Meals starts from here */
+
+/* .featuredmeals ul li h4{
+  position: absolute;
+  top: 0px;
+  width: 88%;
+  text-align: center;
+  padding: 11px;
+  font-size: 20px;
+} */
+.featuredmeals ul li .fetureddetails{display: none;}
+.featuredmeals ul li:hover .fetureddetails{
+  display: block;
+  position: absolute;
+  top: 5%;
+  width: 85.5%;
+  text-align: center;
+  padding: 10% 4%;
+  font-size: 20px;
+  height: 60%;
+  left: 3.4%;
+  background: #79a957bd;
+}
+.fetureddetails h4{color: #242424;margin-bottom: 20px;}
+.fetureddetails ul li{box-shadow:none !important;}
+.fetureddetails ul li#star {
+  line-height: 30px;
+  color: #eef503;}
+
+.fetureddetails #ratings {
+  margin: 0px auto;
+  width: 36%;
+  }
+/* body css ends here */
+
+/* Footer css starts from here */
+
+footer{
+  background-color:#000;
+  color:rgb(255, 255, 255);
+  padding:14px 10px;
+  text-align:center;
+  position: fixed;
+  bottom: 0;
+  z-index: 10;
+  width: 100%;
+}
+
+footer a:link, footer a:visited{color:#fff;text-decoration: none;margin:0 1% ;}
+footer a:active, footer a:hover{display: inline;color: lightseagreen;}
+
+
+
+/* Extra css starts from here */
+
+
+
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+@keyframes bounce { 
+  10%, 90% { 
+      transform: translate3d(0, 0, 0); 
+  } 
+  20%, 80% { 
+      transform: translate3d(0, -5px, 0); 
+  }
+  30%, 50%, 70% { 
+    transform: translate3d(0, 0, 0); 
+  }
+  40%, 60% { 
+    transform: translate3d(0, -10px, 0); 
+  } 
+}
