@@ -3,9 +3,10 @@ const mysql = require('mysql')
 let connection
 
 const getDBConnection = () => {
-  if (connection) return connection
+  // if (connection) return connection
 
-  connection = mysql.createConnection({
+  connection = mysql.createPool({
+    connectionLimit : 10,
     user: process.env.DB_USER,
     host: process.env.DB_HOST,
     password: process.env.DB_PASSWORD,
