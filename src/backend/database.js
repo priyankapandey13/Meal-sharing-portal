@@ -1,11 +1,11 @@
 const mysql = require('mysql')
 
-let connection
+let pool
 
 const getDBConnection = () => {
   // if (connection) return connection
 
-  connection = mysql.createPool({
+  pool = mysql.createPool({
     connectionLimit : 10,
     user: process.env.DB_USER,
     host: process.env.DB_HOST,
@@ -13,7 +13,7 @@ const getDBConnection = () => {
     database: process.env.DB_DATABASE,
   })
 
-  connection.connect((err) => {
+  pool.connect((err) => {
     if (err) {
       console.error('Connection unsuccessful', err)
     } else {
@@ -21,7 +21,7 @@ const getDBConnection = () => {
     }
   })
 
-  return connection
+  return pool
 }
 
 module.exports = getDBConnection()
