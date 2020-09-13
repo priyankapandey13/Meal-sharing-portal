@@ -26,6 +26,8 @@ const deleteMeal = (id) => {
 
 }
 
+
+
 window.handleMealsRequest = () => {
   // const response = 
   fetch("/api/meals")
@@ -33,6 +35,22 @@ window.handleMealsRequest = () => {
   .then(meals => {
     
     console.log(meals);
+    // testvalue = Array.from(new Set (meals));
+    
+    const onlyIDArray=[];
+    
+    meals.map(item=>onlyIDArray.push(item.id)); // Creating a new array of meal id to check the duplication
+    const SetUniqueProdutID= new Set(onlyIDArray);
+    const UniqueProdutID = [...SetUniqueProdutID];
+
+    // console.log(onlyIDArray);
+    // console.log(UniqueProdutID);
+    
+    
+    
+    console.log(UniqueProdutID);
+    
+    
     document.body.innerHTML = `
     <header>
     <h1><a href="/"><img src="./images/food-logo.png"></a></h1>
@@ -46,8 +64,19 @@ window.handleMealsRequest = () => {
     <div>Select a meal of your choice...</div>
     <div class="meallist">
       <ul>
+      
       ${meals.map(meal=> {
-    
+
+        // meals.map(item=>onlyIDArray.push(item.id)); // Creating a new array of meal id to check the duplication
+        // const SetUniqueProdutID= new Set(onlyIDArray);
+        // const UniqueProdutID = [...SetUniqueProdutID];
+        // for (let i = 0; i < UniqueProdutID.length; i++) {
+        //   // const element = array[i];
+        //   console.log("Print hi");
+        // }
+console.log(meal);
+
+        
         return`
         <li>
         <a href="/meal/${meal.id}">
@@ -73,7 +102,8 @@ window.handleMealsRequest = () => {
         
         </li>
         `
-      }).join('')}
+      }
+    ).join('')}
       </ul>
     </div>
     </div>

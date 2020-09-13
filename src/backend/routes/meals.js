@@ -5,9 +5,9 @@ const db = require('../database')
 
 
 router.get('/', (req, res) => {
-    console.log("Returns all meals with GET request");
-    
-    db.query('select meal.*, mealpics.url from meal join mealpics on meal_id = meal.id;', function(error, results, fields) {
+    // console.log("Returns all meals with GET request");
+    console.log("I am here");
+    db.query('SELECT * FROM meal JOIN (select * from mealpics GROUP BY meal_id) as duplicatedmeals on meal_id = meal.id;', function(error, results, fields) {
         if (error) {
           console.log(error);    // throw error;
         }

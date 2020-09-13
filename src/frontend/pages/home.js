@@ -6,7 +6,7 @@ window.handleHomeRequest = () => {
         <li><a href="/" data-navigo>Home</a></li>
         <li><a href="meals" data-navigo>Meals</a></li>
         <li><a href="featuredmeals" data-navigo>Featured Meals</a></li>
-        
+        <li><a href="Login" data-navigo>Login</a></li>
       </ul>
     </header>
     <div class="slidercontainer">

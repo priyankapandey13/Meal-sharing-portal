@@ -1,223 +1,180 @@
 const updateMeal = (id) => {
-
-  let title = document.getElementById('meal-title').value
-  let description = document.getElementById('meal-desc').value
-  let location = document.getElementById('meal-location').value
-  let when = document.getElementById('meal-when').value
-  let max_reservations = document.getElementById('meal-maxreserv').value
-  let price = document.getElementById('meal-price').value
+  let title = document.getElementById("meal-title").value;
+  let description = document.getElementById("meal-desc").value;
+  let location = document.getElementById("meal-location").value;
+  let when = document.getElementById("meal-when").value;
+  let max_reservations = document.getElementById("meal-maxreserv").value;
+  let price = document.getElementById("meal-price").value;
   // let created_date = document.getElementById('meal-createddate').value
 
-  console.log(title, description, location, when, max_reservations, price);  
-  fetch(`/api/meals/${id}`,{ 
-    method : `PUT`,
+  console.log(title, description, location, when, max_reservations, price);
+  fetch(`/api/meals/${id}`, {
+    method: `PUT`,
     headers: { "Content-Type": `application/json` },
-    body:JSON.stringify(
-    {
+    body: JSON.stringify({
       title,
       description,
       location,
       when,
       max_reservations,
-      price
-    })
+      price,
+    }),
   })
-  .then(res => res.json())
-  .then(responses => {
-    console.log(responses)
-    alert("Your information is successfully updated");   
-  })
-}
-
-
+    .then((res) => res.json())
+    .then((responses) => {
+      console.log(responses);
+      alert("Your information is successfully updated");
+    });
+};
 
 const reservemeal = (id) => {
   let x = document.getElementById("reservation");
   let y = document.getElementById("showreviews");
-  let z = document.getElementById("updatemeal");  
-    if (x.style.display === "none") {
-      x.style.height = "100%";
-      x.style.display = "block";
-      x.style.transitionDuration = "5s";
-      x.style.transitionProperty = "height";
-      x.style.marginBottom = "70px";
-      y.style.display = "none";
-      z.style.display = "none";
-    } else {
-      x.style.display = "none";
-      
-    }
-
-}
+  let z = document.getElementById("updatemeal");
+  if (x.style.display === "none") {
+    x.style.height = "100%";
+    x.style.display = "block";
+    x.style.transitionDuration = "5s";
+    x.style.transitionProperty = "height";
+    x.style.marginBottom = "70px";
+    y.style.display = "none";
+    z.style.display = "none";
+  } else {
+    x.style.display = "none";
+  }
+};
 
 const showReviews = (id) => {
   let x = document.getElementById("reservation");
   let y = document.getElementById("showreviews");
   let z = document.getElementById("updatemeal");
-    if (y.style.display === "none") {
-      y.style.height = "100%";
-      y.style.display = "block";
-      y.style.transitionDuration = "5s";
-      y.style.transitionProperty = "height";
-      y.style.marginBottom = "70px";
-      x.style.display = "none";
-      z.style.display = "none";
-    } else {
-      
-      y.style.display = "none";
-      
-    }
+  if (y.style.display === "none") {
+    y.style.height = "100%";
+    y.style.display = "block";
+    y.style.transitionDuration = "5s";
+    y.style.transitionProperty = "height";
+    y.style.marginBottom = "70px";
+    x.style.display = "none";
+    z.style.display = "none";
+  } else {
+    y.style.display = "none";
+  }
+};
 
-}
-
-function menutoggle(){
+function menutoggle() {
   let x = document.getElementById("reservation");
   let y = document.getElementById("showreviews");
   let z = document.getElementById("updatemeal");
-    if (z.style.display === "none") {
-      z.style.height = "100%";
-      z.style.display = "block";
-      z.style.transitionDuration = "5s";
-      z.style.transitionProperty = "height";
-      z.style.marginBottom = "70px";
-      x.style.display = "none";
-      y.style.display = "none";
-    } else {
-      
-      z.style.display = "none";
-    }
-  
+  if (z.style.display === "none") {
+    z.style.height = "100%";
+    z.style.display = "block";
+    z.style.transitionDuration = "5s";
+    z.style.transitionProperty = "height";
+    z.style.marginBottom = "70px";
+    x.style.display = "none";
+    y.style.display = "none";
+  } else {
+    z.style.display = "none";
+  }
 }
-
 
 // For rating stars
 
-function starsfig(count){ 
-  let newrating =[];
-let x = `<li id="star"></li>`;
-for(i=0; i<count; i++)
-{
-  newrating += x;
+function starsfig(count) {
+  let newrating = [];
+  let x = `<li id="star"></li>`;
+  for (i = 0; i < count; i++) {
+    newrating += x;
+  }
+  return newrating;
 }
-return newrating;
-}
-
-
 
 // meal Slider
 
-  let i =0;
-  let images = [];
-  let time = 2000;
-  let imagelinks;
-  // Image list
-  
-  // images[0] = 'https://iphonewalls.net/wp-content/uploads/2015/03/Forest%20Hills%20Snowy%20Mountains%20And%20Sunset%20Clouds%20iPhone%206%20Plus%20HD%20Wallpaper.jpg';
-  // images[1] = 'https://iphonewalls.net/wp-content/uploads/2014/12/Mountain%20Lake%20Snow%20Forest%20iPhone%205%20Wallpaper.jpg';
-  
-  // images[1]= imagess;
-  // images[1]=imagelinks;
-  
-  // Change of images
-  
-    function showSlides() {
-      images[0] = 'https://iphonewalls.net/wp-content/uploads/2015/03/Forest%20Hills%20Snowy%20Mountains%20And%20Sunset%20Clouds%20iPhone%206%20Plus%20HD%20Wallpaper.jpg';
-      images[1]=imagelinks;
-      document.slide.src = images[i];
-      if(i< images.length -1){
-          i++;
-      }else{
-        i=0;
-      }
-      
-      setTimeout('showSlides()', time);
-    }
-    
-  // console.log(imagelinks);
-  
+let i = 0;
+let time = 2000;  
+let foodImgArray;
+const imagelinkarray=[];
 
 
+// Change of images
+function showSlides() {
+  document.slide.src = imagelinkarray[i];
+  if(i< imagelinkarray.length -1){
+    i++;
+}else{
+  i=0;
+}
 
-
-
+  setTimeout("showSlides()", time);
+}
 
 // Validations start here
 const mealReservation = (id) => {
+  let name = document.getElementById("name").value;
+  let phone = document.getElementById("phone").value;
+  let email = document.getElementById("email").value;
 
-  let name = document.getElementById('name').value
-  let phone = document.getElementById('phone').value
-  let email = document.getElementById('email').value
-  
   // validator(name, phone, email);
   testing(name, phone, email);
 
-  console.log(name, phone, email);  
-  fetch(`/api/reservations/${id}`,{ 
-    method : `POST`,
-    headers: { "Content-Type": `application/json`},
-    body:JSON.stringify(
-    {
+  console.log(name, phone, email);
+  fetch(`/api/reservations/${id}`, {
+    method: `POST`,
+    headers: { "Content-Type": `application/json` },
+    body: JSON.stringify({
       name,
       phone,
-      email
-    })
+      email,
+    }),
   })
-  .then(res => res.json())
-  .then(responses => {
-    alert("Your reservation is booked SUCCESSFULLY !!");
-  })
-}
-
-
-  
+    .then((res) => res.json())
+    .then((responses) => {
+      alert("Your reservation is booked SUCCESSFULLY !!");
+    });
+};
 
 function testing(name, phone, email) {
-  // alert("Hi here");
   const phoneno = phone.toString().length;
   const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-  if(!name){
+  if (!name) {
     alert("Please provide name for reservation");
-  
-  }else if(!phoneno){
+  } else if (!phoneno) {
     alert("Please provide a phone number");
-
-  }else if(phoneno < 8 || phoneno > 10){
+  } else if (phoneno < 8 || phoneno > 10) {
     alert("Please correct the phone number");
-  
-  }else if(!email){
+  } else if (!email) {
     alert("Please provide a valid email id");
-
-  }else if(!mailformat.test(email)){
+  } else if (!mailformat.test(email)) {
     alert("This is not a valid email");
-  
   }
-  console.log("I reached here " +name+` `+ phone+` `+ email+` `);
-  
+  console.log("I reached here " + name + ` ` + phone + ` ` + email + ` `);
 }
 
 // Validations ends here
 
-
-
-window.handleMealRequest = params => {
+window.handleMealRequest = (params) => {
   fetch(`/api/meals/${params.id}`)
-  .then(res => res.json())
-  .then(meal =>{
-    let whenDT = (meal[0].when).toString();
-    let whenDateTime;
-    imagelinks = meal[0].url;
-    // console.log(imagelinks);
+    .then((res) => res.json())
+    .then((meal) => {
+      let whenDT = meal[0].when.toString();
+      console.log("Hi");
+      let whenDateTime;
+      meal.map(link =>{
+        imagelinkarray.push(link.url)
+      });
+      // console.log(imagelinkarray);
 
-    if(whenDT.includes("T","Z") == true ){
-      whenDateTime = meal[0].when.replace("T"," ").replace(".000Z","");  // Replace the iso date : i just visually changed it so that database should be the same
-    }
-    
-    document.body.innerHTML = `
+      if (whenDT.includes("T", "Z") == true) {
+        whenDateTime = meal[0].when.replace("T", " ").replace(".000Z", ""); // Replace the iso date : i just visually changed it so that database should be the same
+      }
+
+      document.body.innerHTML = `
       <header>
         <h1><a href="/"><img src="/images/food-logo.png"></a></h1>
         <ul>
           <li><a href="/" data-navigo>Home</a></li>
-          <li><a href="meals" data-navigo>Meals</a></li>
+          <li><a href="/meals" data-navigo>Meals</a></li>
           <li><a href="featuredmeals" data-navigo>Featured Meals</a></li>
         </ul>
       </header>
@@ -225,8 +182,7 @@ window.handleMealRequest = params => {
       <div class="bodycontainer">
             <div class="mealslider" style="background-image:url('${meal[0].url}');">
               <div class="slideshow-container">
-                
-                <img name="slide" style="height:100%">
+                <img name="slide" style="height:100%;width:100%">
               </div>
             </div>
         
@@ -257,8 +213,12 @@ window.handleMealRequest = params => {
             <span class="dropmenu">
               <label onClick="reservemeal()" alt="Reserve Meal" style="background-image:url('/images/reserve.png');"></label>
               <label onClick="menutoggle()" alt="Edit Meal" style="background-image:url('/images/settings.png');"></label>
-              <label onClick="deleteMeal(${meal.id})" alt="Delete Meal" style="background-image:url('/images/delete.png');"></label>
-              <label onClick="showReviews(${meal.id})" alt="Meal Reviews" style="background-image:url('/images/testimonial.png');"></label>
+              <label onClick="deleteMeal(${
+                meal.id
+              })" alt="Delete Meal" style="background-image:url('/images/delete.png');"></label>
+              <label onClick="showReviews(${
+                meal.id
+              })" alt="Meal Reviews" style="background-image:url('/images/testimonial.png');"></label>
             </span>
 
             <iframe name="blankframe" style="display:none" src="about:blank"></iframe>
@@ -281,7 +241,9 @@ window.handleMealRequest = params => {
                   </li>
                   <li>
                     <lable>Maximum no of reservations</lable>
-                    <input value='${meal[0].max_reservations}' id='meal-maxreserv'>
+                    <input value='${
+                      meal[0].max_reservations
+                    }' id='meal-maxreserv'>
                   </li>
                   <li>
                     <lable>Price</lable>
@@ -289,7 +251,9 @@ window.handleMealRequest = params => {
                   </li>
                   <li class="fullwidth">
                     <lable>Description</lable>
-                    <textarea placeholder='${meal[0].description}' id='meal-desc'>${meal[0].description}</textarea>
+                    <textarea placeholder='${
+                      meal[0].description
+                    }' id='meal-desc'>${meal[0].description}</textarea>
                   </li>
                 </ul>
                 <button onClick="updateMeal(${meal[0].id})">Update Meal</button>
@@ -321,7 +285,9 @@ window.handleMealRequest = params => {
                 <li><input id="phone" placeholder="Phone number"></li>
                 <li><input id="email" placeholder="Email ID"></li>
                 <li>
-                  <button onClick="mealReservation(${meal[0].id})">Reserve</button>
+                  <button onClick="mealReservation(${
+                    meal[0].id
+                  })">Reserve</button>
                 </li>
               </ul>
             </div>
@@ -338,16 +304,11 @@ window.handleMealRequest = params => {
         <a href="meals" data-navigo>Meals </a>
         <a href="featuredmeals" data-navigo>featured Meals</a>
       </footer>
-      `
-      showSlides()
-    })
-    
+      `;
+      showSlides(imagelinkarray);
+    });
+
   // if any links are added to the dom, use this function
   // make the router handle those links.
-  router.updatePageLinks()
-
-
-  
-  
-}
-
+  router.updatePageLinks();
+};
